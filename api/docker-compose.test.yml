@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  api:
+    image: go-api:0.4.0
+    container_name: go-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: test
+    entrypoint: go test ./...
+    depends_on:
+      - mongo-db
+    networks:
+      - app
+
+  mongo-db:
+    container_name: mongo-db
+    image: mongo
+    networks:
+      - app
+
+networks:
+  app:

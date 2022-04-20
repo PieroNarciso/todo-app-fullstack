@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  api:
+    image: go-api:0.4.0
+    container_name: go-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: production
+    depends_on:
+      - mongo-db
+    ports:
+      - 8080:8080
+    networks:
+      - app
+
+  mongo-db:
+    container_name: mongo-db
+    image: mongo
+    restart: always
+    networks:
+      - app
+
+networks:
+  app:
