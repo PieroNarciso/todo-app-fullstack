@@ -1,8 +1,7 @@
 package main
 
 import (
-	"todo-app/routes"
-
+	"github.com/PieroNarciso/todo-app-fullstack/src/src/routes"
 	"github.com/gin-gonic/gin"
 )
 

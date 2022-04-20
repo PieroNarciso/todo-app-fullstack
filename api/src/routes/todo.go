@@ -1,9 +1,8 @@
 package routes
 
 import (
-	"todo-app/configs"
-	"todo-app/controllers"
-
+	"github.com/PieroNarciso/todo-app-fullstack/src/src/configs"
+	"github.com/PieroNarciso/todo-app-fullstack/src/src/controllers"
 	"github.com/gin-gonic/gin"
 )
 
