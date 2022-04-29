@@ -12,6 +12,8 @@ services:
       - mongo-db
     networks:
       - app
+    environment:
+      MONGO_URI: mongodb://mongo-db:27017
 
   mongo-db:
     container_name: mongo-db
