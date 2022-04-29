@@ -19,4 +19,4 @@ jobs:
         go-version: 1.18
 
     - name: Test
-      run: docker-compose -f ./api/docker-compose.test.yml run api
+      run: docker-compose -f ./api/docker-compose.test.yml run api --build
