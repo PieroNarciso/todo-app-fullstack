@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  tests-workflow:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -18,5 +18,7 @@ jobs:
       with:
         go-version: 1.18
 
-    - name: Test
-      run: docker-compose -f ./api/docker-compose.test.yml run api --build
+    - name: Build Test Environment Docker
+      run: docker-compose -f ./api/docker-compose.test.yml build
+    - name: Run Tests
+      run: docker-compose -f ./api/docker-compose.test.yml run api
