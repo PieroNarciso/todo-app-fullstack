@@ -48,7 +48,7 @@ func (suite *TodoTestSuite) TestGetOne() {
     var todos []models.Todo
     json.NewDecoder(w.Body).Decode(&todos)
     assert.Equal(suite.T(), http.StatusOK, w.Code)
-    assert.Equal(suite.T(), 2, len(todos))
+    assert.Equal(suite.T(), 1, len(todos))
 }
 
 func (suite *TodoTestSuite) TestGetLenZero() {
