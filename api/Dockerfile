@@ -1,18 +1,18 @@
-FROM golang:1.18.1 AS build
+FROM golang:1.18.1-alpine AS build
 RUN mkdir -p /app
 WORKDIR /app
 COPY go.mod .
 COPY go.sum .
 RUN go mod download
 COPY . .
-RUN go build -o main.out ./src/main.go
+RUN GOOS=linux go build -o main.out ./src/main.go
 
-FROM golang:1.18.1 AS production
+FROM alpine:3.15.4 AS production
 RUN mkdir -p /app
 WORKDIR /app
 COPY --from=build /app/main.out .
 EXPOSE 8080
-CMD /bin/bash -c ./main.out
+CMD /bin/sh -c ./main.out
 
 FROM golang:1.18.1 AS test
 RUN mkdir -p /app

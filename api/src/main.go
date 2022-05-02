@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/PieroNarciso/todo-app-fullstack/src/src/routes"
+	// "github.com/PieroNarciso/todo-app-fullstack/src/src/routes"
 	"github.com/gin-gonic/gin"
 )
 
@@ -12,7 +12,7 @@ func main() {
 
     r.GET("/", func(c *gin.Context) {
         c.JSON(200, gin.H{
-            "message": "Hello World!",
+            "message": "Hello World",
         })
     })
 
@@ -21,8 +21,8 @@ func main() {
             "message": "pong",
         })
     })
-    todoGroup := r.Group("/todos")
-    routes.TodoRoute(todoGroup)
+    // todoGroup := r.Group("/todos")
+    // routes.TodoRoute(todoGroup)
 
     r.Run()
 }
