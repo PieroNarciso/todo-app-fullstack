@@ -15,6 +15,7 @@ EXPOSE 8080
 CMD /bin/sh -c ./main.out
 
 FROM golang:1.18.1-alpine AS test
+RUN apk add build-base
 RUN mkdir -p /app
 WORKDIR /app/src
 COPY go.mod .
