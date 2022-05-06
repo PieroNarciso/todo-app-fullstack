@@ -4,6 +4,8 @@ services:
   api:
     image: go-api-dev
     container_name: go-api-dev
+    tty: true
+    stdin_open: true
     build:
       context: .
       dockerfile: Dockerfile
